@@ -1,6 +1,9 @@
 import { Analytics } from '@vercel/analytics/next'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import RootContent from '@/components/RootContent'
 import './globals.css'
+
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Manaja - Property Listings',
@@ -13,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={plusJakartaSans.className}>
       <head />
       <body className="antialiased">
         <RootContent>
