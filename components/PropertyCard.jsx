@@ -231,12 +231,18 @@ export default function PropertyCard({ property }) {
         <Button
           component={Link}
           href={`/properties/${property.id}`}
-          variant="contained"
           fullWidth
           sx={{
-            backgroundColor: '#0066CC',
+            backgroundColor: '#1a1a1a',
+            color: '#fff',
+            fontWeight: 700,
+            py: 1.5,
+            textTransform: 'none',
+            fontSize: '0.95rem',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
             '&:hover': {
-              backgroundColor: '#053847',
+              backgroundColor: '#0066CC',
+              boxShadow: '0 4px 12px rgba(0, 102, 204, 0.3)',
             },
           }}
         >
