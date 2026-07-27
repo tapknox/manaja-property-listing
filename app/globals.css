@@ -47,6 +47,12 @@
 
 :root {
   color-scheme: light;
+  --manaja-blue: #0066CC;
+  --manaja-gold: #FFB800;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --bg-light: #f8f9fa;
+  --border-light: #e5e5e5;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
