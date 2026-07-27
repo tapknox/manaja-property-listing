@@ -49,7 +49,13 @@ export default function PropertyCard({ property }) {
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
+        borderRadius: '12px',
+        boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)',
+        border: '1px solid rgba(0, 0, 0, 0.04)',
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         '&:hover': {
+          boxShadow: '0 16px 40px rgba(0, 0, 0, 0.15)',
+          transform: 'translateY(-6px)',
           '& .property-image': {
             transform: 'scale(1.08)',
           },
@@ -181,47 +187,47 @@ export default function PropertyCard({ property }) {
       </Box>
 
       {/* Content */}
-      <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column', p: 3 }}>
         <Typography
           variant="caption"
-          sx={{ color: '#666', mb: 0.5, textTransform: 'uppercase', fontWeight: 600 }}
+          sx={{ color: '#999', mb: 1, textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.5px', fontSize: '0.7rem' }}
         >
           {property.location}
         </Typography>
-        <Typography variant="h6" sx={{ mb: 1, fontWeight: 700, color: '#1a1a1a' }}>
+        <Typography variant="h6" sx={{ mb: 1.5, fontWeight: 700, color: '#1a1a1a', lineHeight: 1.3 }}>
           {property.title}
         </Typography>
-        <Typography variant="body2" sx={{ color: '#666', mb: 2, flex: 1 }}>
+        <Typography variant="body2" sx={{ color: '#777', mb: 2.5, flex: 1, lineHeight: 1.5, fontSize: '0.9rem' }}>
           {property.description.substring(0, 80)}...
         </Typography>
 
         {/* Stats */}
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, mb: 2 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <MeetingRoomIcon sx={{ fontSize: 18, color: '#0066CC' }} />
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      {property.beds}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <BathtubIcon sx={{ fontSize: 18, color: '#0066CC' }} />
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      {property.baths}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <AspectRatioIcon sx={{ fontSize: 18, color: '#0066CC' }} />
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      {property.area}m²
-                    </Typography>
-                  </Box>
+        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, mb: 3, pb: 3, borderBottom: '1px solid rgba(0, 0, 0, 0.06)' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.75 }}>
+            <MeetingRoomIcon sx={{ fontSize: 20, color: '#0066CC' }} />
+            <Typography variant="body2" sx={{ fontWeight: 700, color: '#1a1a1a', fontSize: '0.95rem' }}>
+              {property.beds}
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.75 }}>
+            <BathtubIcon sx={{ fontSize: 20, color: '#0066CC' }} />
+            <Typography variant="body2" sx={{ fontWeight: 700, color: '#1a1a1a', fontSize: '0.95rem' }}>
+              {property.baths}
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.75 }}>
+            <AspectRatioIcon sx={{ fontSize: 20, color: '#0066CC' }} />
+            <Typography variant="body2" sx={{ fontWeight: 700, color: '#1a1a1a', fontSize: '0.95rem' }}>
+              {property.area}m²
+            </Typography>
+          </Box>
         </Box>
 
         {/* Rating */}
-        <Box sx={{ mb: 2 }}>
-          <Typography variant="body2" sx={{ color: '#666' }}>
+        <Box sx={{ mb: 3 }}>
+          <Typography variant="body2" sx={{ color: '#666', fontSize: '0.85rem' }}>
             Rating:{' '}
-            <Typography component="span" sx={{ fontWeight: 700, color: '#0066CC' }}>
+            <Typography component="span" sx={{ fontWeight: 700, color: '#0066CC', fontSize: '0.95rem' }}>
               {property.rating}/5
             </Typography>
           </Typography>
@@ -231,12 +237,19 @@ export default function PropertyCard({ property }) {
         <Button
           component={Link}
           href={`/properties/${property.id}`}
-          variant="contained"
           fullWidth
           sx={{
             backgroundColor: '#0066CC',
+            color: '#fff',
+            fontWeight: 700,
+            py: 1.2,
+            textTransform: 'none',
+            fontSize: '0.95rem',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            borderRadius: '8px',
             '&:hover': {
-              backgroundColor: '#053847',
+              backgroundColor: '#0052A3',
+              boxShadow: '0 8px 24px rgba(0, 102, 204, 0.35)',
             },
           }}
         >

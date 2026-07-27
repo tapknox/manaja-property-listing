@@ -63,7 +63,7 @@ export default function HomePage() {
       </Box>
 
       {/* Main Content */}
-      <Box sx={{ width: '100%', px: { xs: 1, sm: 2, md: 3 }, pb: 8 }}>
+      <Container maxWidth="lg" sx={{ pb: 8, display: 'flex', flexDirection: 'column' }}>
         {/* Filters */}
         <FilterBar filters={filters} onFilterChange={setFilters} />
 
@@ -85,13 +85,11 @@ export default function HomePage() {
         {/* Properties Grid */}
         {visibleProperties.length > 0 ? (
           <>
-            <Grid container spacing={2}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }, gap: 3, width: '100%' }}>
               {visibleProperties.map((property) => (
-                <Grid item xs={12} sm={6} md={4} lg={4} key={property.id}>
-                  <PropertyCard property={property} />
-                </Grid>
+                <PropertyCard property={property} key={property.id} />
               ))}
-            </Grid>
+            </Box>
 
             {/* Load More Button */}
             {hasMore && (
@@ -137,7 +135,7 @@ export default function HomePage() {
             </Button>
           </Box>
         )}
-      </Box>
+      </Container>
     </Box>
   );
 }

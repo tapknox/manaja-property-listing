@@ -45,32 +45,67 @@ export default function FilterBar({ filters, onFilterChange }) {
   return (
     <Box
       sx={{
-        backgroundColor: '#f5f5f5',
-        p: 3,
-        borderRadius: 2,
+        backgroundColor: '#fff',
+        p: { xs: 2, md: 3 },
+        borderRadius: '12px',
         mb: 4,
+        border: '1px solid rgba(0, 0, 0, 0.06)',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
       }}
     >
-      <Grid container spacing={2}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          gap: 2,
+          alignItems: { xs: 'stretch', md: 'flex-end' },
+        }}
+      >
         {/* Search */}
-        <Grid item xs={12} sm={6} md={3}>
+        <Box sx={{ flex: { xs: 1, md: 1.5 } }}>
           <TextField
             fullWidth
             placeholder="Search properties..."
             value={filters.search || ''}
             onChange={(e) => handleChange('search', e.target.value)}
             size="small"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '8px',
+                backgroundColor: '#f8f9fa',
+                border: '1px solid rgba(0, 0, 0, 0.08)',
+                '&:hover': {
+                  border: '1px solid rgba(0, 102, 204, 0.2)',
+                },
+                '&.Mui-focused': {
+                  border: '1px solid #0066CC',
+                  backgroundColor: '#fff',
+                },
+              },
+            }}
           />
-        </Grid>
+        </Box>
 
         {/* Type */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Box sx={{ flex: { xs: 1, md: 1 } }}>
           <Select
             fullWidth
             value={filters.type || 'all'}
             onChange={(e) => handleChange('type', e.target.value)}
             size="small"
             displayEmpty
+            sx={{
+              borderRadius: '8px',
+              backgroundColor: '#f8f9fa',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              '&:hover': {
+                border: '1px solid rgba(0, 102, 204, 0.2)',
+              },
+              '&.Mui-focused': {
+                border: '1px solid #0066CC',
+                backgroundColor: '#fff',
+              },
+            }}
           >
             <MenuItem value="all">All Types</MenuItem>
             {propertyTypes.map((type) => (
@@ -79,16 +114,28 @@ export default function FilterBar({ filters, onFilterChange }) {
               </MenuItem>
             ))}
           </Select>
-        </Grid>
+        </Box>
 
         {/* Beds */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Box sx={{ flex: { xs: 1, md: 0.9 } }}>
           <Select
             fullWidth
             value={filters.beds || 'all'}
             onChange={(e) => handleChange('beds', e.target.value)}
             size="small"
             displayEmpty
+            sx={{
+              borderRadius: '8px',
+              backgroundColor: '#f8f9fa',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              '&:hover': {
+                border: '1px solid rgba(0, 102, 204, 0.2)',
+              },
+              '&.Mui-focused': {
+                border: '1px solid #0066CC',
+                backgroundColor: '#fff',
+              },
+            }}
           >
             <MenuItem value="all">All Beds</MenuItem>
             <MenuItem value="1">1+</MenuItem>
@@ -97,16 +144,28 @@ export default function FilterBar({ filters, onFilterChange }) {
             <MenuItem value="4">4+</MenuItem>
             <MenuItem value="5">5+</MenuItem>
           </Select>
-        </Grid>
+        </Box>
 
         {/* Location */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Box sx={{ flex: { xs: 1, md: 1 } }}>
           <Select
             fullWidth
             value={filters.location || 'all'}
             onChange={(e) => handleChange('location', e.target.value)}
             size="small"
             displayEmpty
+            sx={{
+              borderRadius: '8px',
+              backgroundColor: '#f8f9fa',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              '&:hover': {
+                border: '1px solid rgba(0, 102, 204, 0.2)',
+              },
+              '&.Mui-focused': {
+                border: '1px solid #0066CC',
+                backgroundColor: '#fff',
+              },
+            }}
           >
             <MenuItem value="all">All Locations</MenuItem>
             {locations.map((loc) => (
@@ -115,26 +174,38 @@ export default function FilterBar({ filters, onFilterChange }) {
               </MenuItem>
             ))}
           </Select>
-        </Grid>
+        </Box>
 
         {/* Status */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Box sx={{ flex: { xs: 1, md: 0.9 } }}>
           <Select
             fullWidth
             value={filters.status || 'all'}
             onChange={(e) => handleChange('status', e.target.value)}
             size="small"
             displayEmpty
+            sx={{
+              borderRadius: '8px',
+              backgroundColor: '#f8f9fa',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              '&:hover': {
+                border: '1px solid rgba(0, 102, 204, 0.2)',
+              },
+              '&.Mui-focused': {
+                border: '1px solid #0066CC',
+                backgroundColor: '#fff',
+              },
+            }}
           >
             <MenuItem value="all">All Status</MenuItem>
             <MenuItem value="available">Available</MenuItem>
             <MenuItem value="rented">Rented</MenuItem>
             <MenuItem value="sold">Sold</MenuItem>
           </Select>
-        </Grid>
+        </Box>
 
         {/* Reset Button */}
-        <Grid item xs={12} sm={6} md={1}>
+        <Box sx={{ flex: { xs: 1, md: 0.7 } }}>
           <Button
             fullWidth
             variant="outlined"
@@ -147,11 +218,25 @@ export default function FilterBar({ filters, onFilterChange }) {
                 status: 'all',
               })
             }
+            sx={{
+              color: '#0066CC',
+              borderColor: '#0066CC',
+              fontWeight: 600,
+              textTransform: 'none',
+              borderRadius: '8px',
+              py: 1,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: '#0066CC',
+                color: '#fff',
+                borderColor: '#0066CC',
+              },
+            }}
           >
             Reset
           </Button>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   );
 }
