@@ -169,7 +169,7 @@ export default function PropertyDetailPage() {
                           borderRadius: '50%',
                           backgroundColor:
                             idx === currentImageIndex
-                              ? '#E8A33D'
+                              ? '#E23744'
                               : 'rgba(255, 255, 255, 0.6)',
                           cursor: 'pointer',
                           transition: 'all 0.3s',
@@ -195,7 +195,7 @@ export default function PropertyDetailPage() {
                       cursor: 'pointer',
                       border:
                         idx === currentImageIndex
-                          ? '3px solid #0066CC'
+                          ? '3px solid #E23744'
                           : '2px solid #e0e0e0',
                       transition: 'all 0.3s',
                     }}
@@ -222,7 +222,7 @@ export default function PropertyDetailPage() {
               <Chip
                 label={property.type}
                 sx={{
-                  backgroundColor: '#0066CC',
+                  backgroundColor: '#16213E',
                   color: '#fff',
                   fontWeight: 700,
                   mb: 2,
@@ -237,7 +237,7 @@ export default function PropertyDetailPage() {
               >
                 {property.location}
               </Typography>
-              <Typography variant="h5" sx={{ color: '#0066CC', fontWeight: 700 }}>
+              <Typography variant="h5" sx={{ color: '#16213E', fontWeight: 800 }}>
                 {formatPrice(property.price)}
               </Typography>
             </Box>
@@ -255,7 +255,7 @@ export default function PropertyDetailPage() {
               <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <Box sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#0066CC' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#E23744' }}>
                       {property.beds}
                     </Typography>
                     <Typography variant="body2" sx={{ color: '#666', mt: 0.5 }}>
@@ -265,7 +265,7 @@ export default function PropertyDetailPage() {
                 </Grid>
                 <Grid item xs={6}>
                   <Box sx={{ textAlign: 'center' }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#0066CC' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#E23744' }}>
                       {property.baths}
                     </Typography>
                     <Typography variant="body2" sx={{ color: '#666', mt: 0.5 }}>
@@ -275,7 +275,7 @@ export default function PropertyDetailPage() {
                 </Grid>
                 <Grid item xs={12}>
                   <Box sx={{ textAlign: 'center', borderTop: '1px solid #e0e0e0', pt: 2 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#0066CC' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 700, color: '#E23744' }}>
                       {property.area}
                     </Typography>
                     <Typography variant="body2" sx={{ color: '#666', mt: 0.5 }}>
@@ -303,11 +303,11 @@ export default function PropertyDetailPage() {
                 {property.manager.name}
               </Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                <LocalPhoneIcon sx={{ fontSize: 18, color: '#0066CC' }} />
+                <LocalPhoneIcon sx={{ fontSize: 18, color: '#E23744' }} />
                 <Typography variant="body2">{property.manager.phone}</Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                <MailIcon sx={{ fontSize: 18, color: '#0066CC' }} />
+                <MailIcon sx={{ fontSize: 18, color: '#E23744' }} />
                 <Typography variant="body2">{property.manager.email}</Typography>
               </Box>
               <Button
@@ -315,9 +315,9 @@ export default function PropertyDetailPage() {
                 variant="contained"
                 onClick={() => setContactDialogOpen(true)}
                 sx={{
-                  backgroundColor: '#E8A33D',
+                  backgroundColor: '#E23744',
                   color: '#1a1a1a',
-                  '&:hover': { backgroundColor: '#D08426' },
+                  '&:hover': { backgroundColor: '#C42B37' },
                 }}
               >
                 Contact Manager
@@ -337,7 +337,7 @@ export default function PropertyDetailPage() {
               <Typography variant="body2" sx={{ color: '#666', mb: 1 }}>
                 Property Rating
               </Typography>
-              <Typography variant="h5" sx={{ color: '#0066CC', fontWeight: 700 }}>
+              <Typography variant="h5" sx={{ color: '#E23744', fontWeight: 700 }}>
                 {property.rating}/5
               </Typography>
             </Box>
@@ -432,7 +432,7 @@ export default function PropertyDetailPage() {
           <Button
             onClick={handleSubmitContact}
             variant="contained"
-            sx={{ backgroundColor: '#0066CC' }}
+            sx={{ backgroundColor: '#E23744' }}
           >
             Send Message
           </Button>

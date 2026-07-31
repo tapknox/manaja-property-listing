@@ -6,9 +6,9 @@ import './globals.css'
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Manaja - Property Listings',
-  description: 'Find your perfect property with Manaja. Browse verified listings from experienced metro managers across Lagos.',
-  themeColor: '#0066CC',
+  title: 'Manaja | Find the Right Property in Nigeria',
+  description: 'Search thousands of homes, land and commercial property for sale and rent across Lagos, Abuja and every major city in Nigeria with Manaja.',
+  themeColor: '#16213E',
   icons: {
     icon: '/logo.png',
   },
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={plusJakartaSans.className}>
+    <html lang="en" className={`${plusJakartaSans.className} bg-background`}>
       <head />
       <body className="antialiased">
         <RootContent>
