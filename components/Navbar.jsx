@@ -12,85 +12,135 @@ import {
   ListItem,
   ListItemButton,
   IconButton,
-  useMediaQuery,
+  Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
+import Logo from '@/components/Logo';
+
+const navLinks = [
+  { label: 'For Sale', href: '/' },
+  { label: 'For Rent', href: '/' },
+  { label: 'Shortlets', href: '/' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const navLinks = [
-    { label: 'Browse Properties', href: '/' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
   const drawer = (
-    <Box sx={{ width: 250 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
-        <IconButton onClick={handleDrawerToggle}>
+    <Box sx={{ width: 280 }} role="navigation">
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2 }}>
+        <Logo size={30} />
+        <IconButton onClick={handleDrawerToggle} aria-label="close menu">
           <ClearIcon />
         </IconButton>
       </Box>
+      <Divider />
       <List>
-        {navLinks.map((link) => (
-          <ListItem key={link.href} disablePadding>
+        {navLinks.map((link, idx) => (
+          <ListItem key={`${link.label}-${idx}`} disablePadding>
             <ListItemButton
               component={Link}
               href={link.href}
               onClick={handleDrawerToggle}
+              sx={{ py: 1.5, color: '#16213E', fontWeight: 600 }}
             >
               {link.label}
             </ListItemButton>
           </ListItem>
         ))}
       </List>
+      <Box sx={{ p: 2 }}>
+        <Button
+          fullWidth
+          component={Link}
+          href="#list"
+          onClick={handleDrawerToggle}
+          variant="contained"
+          sx={{ backgroundColor: '#E23744', fontWeight: 700, py: 1.2 }}
+        >
+          List a property
+        </Button>
+      </Box>
     </Box>
   );
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: '#fff', color: '#1a1a1a' }}>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 1 }}>
+    <AppBar
+      position="sticky"
+      elevation={0}
+      sx={{
+        backgroundColor: '#fff',
+        color: '#16213E',
+        borderBottom: '1px solid #e7e9ee',
+      }}
+    >
+      <Toolbar
+        sx={{
+          maxWidth: 1200,
+          width: '100%',
+          mx: 'auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          py: 1,
+          px: { xs: 2, md: 3 },
+        }}
+      >
         <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img
-            src="/logo.png"
-            alt="Manaja"
-            style={{ height: '40px', width: 'auto' }}
-          />
+          <Logo size={36} />
         </Link>
 
-        {isMobile ? (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
+          {navLinks.map((link, idx) => (
+            <Button
+              key={`${link.label}-${idx}`}
+              component={Link}
+              href={link.href}
+              disableRipple
+              sx={{
+                color: '#4a5568',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                px: 1.5,
+                '&:hover': { color: '#E23744', backgroundColor: 'transparent' },
+              }}
+            >
+              {link.label}
+            </Button>
+          ))}
+          <Button
+            component={Link}
+            href="#list"
+            variant="contained"
+            sx={{
+              ml: 1.5,
+              backgroundColor: '#E23744',
+              fontWeight: 700,
+              px: 2.5,
+              boxShadow: 'none',
+              '&:hover': { backgroundColor: '#C42B37', boxShadow: 'none' },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-        ) : (
-          <Box sx={{ display: 'flex', gap: 3 }}>
-            {navLinks.map((link) => (
-              <Button
-                key={link.href}
-                component={Link}
-                href={link.href}
-                sx={{
-                  color: '#666',
-                  fontWeight: 500,
-                  '&:hover': { color: '#0066CC' },
-                }}
-              >
-                {link.label}
-              </Button>
-            ))}
-          </Box>
-        )}
+            List a property
+          </Button>
+        </Box>
+
+        <IconButton
+          color="inherit"
+          aria-label="open menu"
+          edge="end"
+          onClick={handleDrawerToggle}
+          sx={{ display: { xs: 'inline-flex', md: 'none' } }}
+        >
+          <MenuIcon />
+        </IconButton>
       </Toolbar>
 
       <Drawer anchor="right" open={mobileOpen} onClose={handleDrawerToggle}>
