@@ -21,10 +21,9 @@ const columns = [
   {
     title: 'Featured Searches',
     links: [
-      { label: 'Apartments in Lagos', href: '/' },
-      { label: 'Houses in Abuja', href: '/' },
-      { label: 'Land in Lekki', href: '/' },
-      { label: 'Shortlets in Ikoyi', href: '/' },
+      { label: 'About Us', href: 'https://www.manaja.solutions/about' },
+      { label: 'Our Services', href: 'https://www.manaja.solutions/modules' },
+      { label: 'Contact Us', href: 'https://www.manaja.solutions/contact' },
     ],
   },
   {
@@ -131,14 +130,14 @@ export default function Footer() {
                     +234 (814) 694-6985{'  |  '}+250 (793) 149-988
                   </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, color: 'rgba(255,255,255,0.7)' }}>
+                {/* <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, color: 'rgba(255,255,255,0.7)' }}>
                   <LocationOnOutlinedIcon sx={{ fontSize: 18, mt: '2px' }} />
                   <Typography sx={{ fontSize: '0.9rem' }}>Global: Remote-First</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, color: 'rgba(255,255,255,0.7)' }}>
+                </Box> */}
+                {/* <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, color: 'rgba(255,255,255,0.7)' }}>
                   <ScheduleOutlinedIcon sx={{ fontSize: 18, mt: '2px' }} />
                   <Typography sx={{ fontSize: '0.9rem' }}>Monday – Friday, 9AM – 5PM GMT+1</Typography>
-                </Box>
+                </Box> */}
               </Box>
             </Box>
 
@@ -173,8 +172,26 @@ export default function Footer() {
             }}
           >
             <Typography sx={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem' }}>
-              © {currentYear} Manaja. All rights reserved.
+              © {currentYear} Manaja Solution Limited. All rights reserved.
             </Typography>
+
+
+<Box sx={{ display: 'flex', gap: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, color: 'rgba(255,255,255,0.7)' }}>
+                  <MailOutlineIcon sx={{ fontSize: 18, mt: '2px' }} />
+                  <MuiLink href="mailto:hello@manaja.solutions" sx={{ ...linkSx, fontSize: '0.9rem' }}>
+                    hello@manaja.solutions
+                  </MuiLink>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, color: 'rgba(255,255,255,0.7)' }}>
+                  <LocalPhoneOutlinedIcon sx={{ fontSize: 18, mt: '2px' }} />
+                  <Typography sx={{ fontSize: '0.9rem' }}>
+                    +234 (814) 694-6985{'  |  '}+250 (793) 149-988
+                  </Typography>
+                </Box>
+
+
+
             <Box sx={{ display: 'flex', gap: 3 }}>
               <MuiLink href={`${SITE_URL}/terms`} target="_blank" rel="noopener noreferrer" sx={linkSx}>
                 Terms
