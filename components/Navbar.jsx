@@ -49,7 +49,7 @@ const locations = [
 ];
 
 const dropdownNav = [
-  { label: 'For Sale', key: 'sale', listingType: 'sale' },
+  // { label: 'For Sale', key: 'sale', listingType: 'sale' },
   { label: 'For Rent', key: 'rent', listingType: 'rent' },
   { label: 'Shortlets', key: 'shortlet', listingType: 'shortlet' },
 ];
@@ -169,7 +169,7 @@ export default function Navbar() {
 
   const handleMobilePropertyTypeClick = (itemKey, type) => {
     const listingTypeMap = {
-      'sale': 'sale',
+      // 'sale': 'sale',
       'rent': 'rent',
       'shortlet': 'shortlet'
     };
@@ -182,7 +182,7 @@ export default function Navbar() {
 
   const handleMobileLocationClick = (itemKey, locationObj) => {
     const listingTypeMap = {
-      'sale': 'sale',
+      // 'sale': 'sale',
       'rent': 'rent',
       'shortlet': 'shortlet'
     };
