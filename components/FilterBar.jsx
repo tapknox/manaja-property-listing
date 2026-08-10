@@ -107,7 +107,7 @@ export default function FilterBar({ filters, onFilterChange }) {
         sx={{ flex: 1, ...controlSx }}
       >
         <MenuItem value="all">All Listings</MenuItem>
-        <MenuItem value="sale">For Sale</MenuItem>
+        {/* <MenuItem value="sale">For Sale</MenuItem> */}
         <MenuItem value="rent">For Rent</MenuItem>
         <MenuItem value="shortlet">Shortlet</MenuItem>
       </Select>
